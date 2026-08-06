@@ -1,3 +1,4 @@
+unified-inventory-rules @ git+https://github.com/joannayang371/unified-inventory-rules@e38c2fb8029b8bfb67b70dc702c9ccc4bf2b718b#subdirectory=python
 fastapi>=0.110
 uvicorn>=0.27
 pymongo>=4.6

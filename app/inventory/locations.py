@@ -1,8 +1,8 @@
 """Serviceable customer locations.
 
 Sales engineers use this to answer one question: can we sell the customer the
-bandwidth they are asking for at this location today? The answer uses the same
-capacity rule as the rest of the platform — the maintenance buffer is withheld,
+bandwidth they are asking for at this location today? The answer comes from the
+shared ``unified-inventory-rules`` rule — the maintenance buffer is withheld,
 because capacity reserved for maintenance windows is not sellable.
 """
 
@@ -10,10 +10,16 @@ from __future__ import annotations
 
 from typing import Any, Dict, List, Optional
 
-from app.db import all_documents
-from app.inventory.capacity import available_capacity, utilization_pct
+from unified_inventory_rules import (
+    AVAILABILITY_RULE,
+    available_capacity,
+    can_support,
+    utilization_pct,
+)
 
-AVAILABILITY_RULE = "available = total_capacity - allocated - maintenance_buffer"
+from app.db import all_documents
+
+__all__ = ["AVAILABILITY_RULE", "enrich_location", "list_locations", "get_location", "buffer_total_mbps"]
 
 
 def enrich_location(location: Dict[str, Any], requested_mbps: int = 0) -> Dict[str, Any]:
@@ -25,7 +31,7 @@ def enrich_location(location: Dict[str, Any], requested_mbps: int = 0) -> Dict[s
     enriched.update(
         available_mbps=available,
         utilization_pct=utilization_pct(total, allocated, buffer_mbps),
-        can_support=available >= requested_mbps,
+        can_support=can_support(total, allocated, buffer_mbps, requested_mbps),
         headroom_mbps=available - requested_mbps,
     )
     return enriched
