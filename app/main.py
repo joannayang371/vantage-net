@@ -2,7 +2,7 @@ from __future__ import annotations
 
 from fastapi import FastAPI
 
-from app.routers import billing, dashboard, inventory, network
+from app.routers import billing, capacity, dashboard, inventory, network
 
 app = FastAPI(
     title="Vantage Network Services",
@@ -13,6 +13,7 @@ app = FastAPI(
 app.include_router(inventory.router)
 app.include_router(network.router)
 app.include_router(billing.router)
+app.include_router(capacity.router)
 app.include_router(dashboard.router)
 
 

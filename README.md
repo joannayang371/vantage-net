@@ -65,6 +65,20 @@ Devices flagged `external_bgp` are customer-facing and must not be renumbered.
 
 Endpoints: `GET /billing/invoices`, `GET /billing/usage-summary`.
 
+## Capacity check (sales engineering)
+
+`GET /capacity` is the sales-facing page: enter the bandwidth being quoted and
+it shows, per customer location, what is actually sellable. Availability comes
+from `app/inventory/capacity.py`, so the maintenance buffer is withheld:
+
+```
+available = total_capacity - allocated - maintenance_buffer
+```
+
+Serviceable locations live in `data/seed/locations.json`. The same figures are
+available as JSON from `GET /capacity/locations?requested_mbps=...` and
+`GET /capacity/locations/{location_code}`.
+
 ## Dashboard
 
 `GET /dashboard` renders the current inventory and billing figures as a plain
@@ -82,4 +96,4 @@ addressing/reference integrity, and the HTTP surface.
 ## Seed data
 
 `data/seed/` holds `sites.json` (97), `circuits.json`, `devices.json`,
-`accounts.json` and `usage.json`.
+`accounts.json`, `usage.json` and `locations.json`.

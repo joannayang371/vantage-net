@@ -21,6 +21,7 @@ COLLECTIONS = {
     "accounts": "accounts.json",
     "usage": "usage.json",
     "devices": "devices.json",
+    "locations": "locations.json",
 }
 
 
