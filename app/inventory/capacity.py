@@ -3,21 +3,20 @@
 Vantage always holds back a maintenance buffer on top of what is allocated: a
 link is not considered spare capacity if we need it during a maintenance
 window. ``available`` is therefore total - allocated - maintenance_buffer.
+
+The arithmetic itself lives in the shared ``inventory_rules`` package (see
+``third_party/unified-inventory-rules``) so meridian-oss and vantage-net apply
+the exact same rule. This module only re-exports it and adds the Vantage-
+specific ``site_capacity`` shaping.
 """
 
 from __future__ import annotations
 
 from typing import Any, Dict
 
+from inventory_rules import available_capacity, utilization_pct
 
-def available_capacity(total_mbps: int, allocated_mbps: int, maintenance_buffer_mbps: int = 0) -> int:
-    return max(total_mbps - allocated_mbps - maintenance_buffer_mbps, 0)
-
-
-def utilization_pct(total_mbps: int, allocated_mbps: int, maintenance_buffer_mbps: int = 0) -> float:
-    if total_mbps <= 0:
-        return 0.0
-    return round((allocated_mbps + maintenance_buffer_mbps) * 100 / total_mbps, 2)
+__all__ = ["available_capacity", "utilization_pct", "site_capacity"]
 
 
 def site_capacity(site: Dict[str, Any]) -> Dict[str, Any]:
