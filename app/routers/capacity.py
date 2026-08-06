@@ -5,8 +5,9 @@ from typing import Optional
 from fastapi import APIRouter, HTTPException, Query
 from fastapi.responses import HTMLResponse
 
+from unified_inventory_rules import AVAILABILITY_RULE
+
 from app.inventory.locations import (
-    AVAILABILITY_RULE,
     buffer_total_mbps,
     get_location,
     list_locations,
@@ -276,7 +277,7 @@ _PAGE = """<!DOCTYPE html>
     </table>
   </div>
   <footer>
-    Rule: <code>{rule}</code> · implemented in <code>app/inventory/capacity.py</code> ·
+    Rule: <code>{rule}</code> · from shared <code>unified-inventory-rules</code> ·
     data from <code>GET /capacity/locations</code> · figures in Mbps.
   </footer>
 </main>

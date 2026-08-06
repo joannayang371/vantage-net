@@ -25,8 +25,11 @@ Network resources keyed by `device_uuid`, grouped by `market_id` (fine-grained
 metro codes), with a five-state `lifecycle_state`: `ACTIVE`, `MAINTENANCE`,
 `RETIRED`, `PLANNED`, `RESERVED`.
 
-- `capacity.py` — `available = total - allocated - maintenance_buffer`. A link
-  reserved for maintenance is not spare capacity.
+- `capacity.py` — adapts the shared
+  [`unified-inventory-rules`](https://github.com/joannayang371/unified-inventory-rules)
+  rule `available = total - allocated - maintenance_buffer` to site documents. A
+  link reserved for maintenance is not spare capacity. The same package backs the
+  meridian-oss capacity check, so both platforms quote identical numbers.
 - `circuits.py` — standby and failover circuits are excluded from active counts
   and active capacity.
 
