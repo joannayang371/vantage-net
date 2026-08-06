@@ -4,3 +4,6 @@ pymongo>=4.6
 pydantic>=2.6
 pytest>=8.0
 httpx>=0.27
+
+# Shared inventory business rules (vendored as a git submodule).
+./third_party/unified-inventory-rules
