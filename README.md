@@ -8,8 +8,10 @@ and the test suite run with no database.
 
 ## Getting started
 
+Vantage requires Python 3.12 or newer.
+
 ```bash
-python -m venv .venv && source .venv/bin/activate
+python3.12 -m venv .venv && source .venv/bin/activate
 pip install -r requirements.txt
 uvicorn app.main:app --reload --port 8000
 ```
