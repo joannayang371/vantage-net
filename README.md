@@ -82,5 +82,4 @@ addressing/reference integrity, and the HTTP surface.
 ## Seed data
 
 `data/seed/` holds `sites.json` (97), `circuits.json`, `devices.json`,
-`accounts.json` and `usage.json`. `known-conflicts.json` at the repo root
-documents known data conflicts with the Meridian estate post-acquisition.
+`accounts.json` and `usage.json`.

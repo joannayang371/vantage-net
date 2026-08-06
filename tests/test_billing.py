@@ -23,13 +23,13 @@ def test_discount_is_applied_after_tax():
     assert invoice_total(charges, 8.0, 6.25) == apply_loyalty(taxed, 8.0)
 
 
-def test_beacon_has_its_own_vantage_invoice():
+def test_enterprise_account_invoice():
     found = invoice_service.list_invoices(account_id="VANTAGE-BILL-88213", period="2026-07")
     assert len(found) == 1
     assert found[0]["legal_name"] == "Beacon Manufacturing Corp"
 
 
-def test_oakview_usage_is_mediated_but_never_invoiced():
+def test_usage_without_an_account_is_not_invoiced():
     unlinked = invoice_service.unlinked_usage()
     assert {u["usage_id"] for u in unlinked} == {"VU-2026-06-0447", "VU-2026-07-0447"}
     assert invoice_service.billed_usage_mb() < invoice_service.mediated_usage_mb()
