@@ -1,0 +1,86 @@
+[
+  {
+    "usage_id": "VU-2026-06-0001",
+    "account_id": "VANTAGE-BILL-88213",
+    "device_uuid": "7df04fa3-e35d-6f44-193f-038f70570d90",
+    "period": "2026-06",
+    "usage_mb": 3412088
+  },
+  {
+    "usage_id": "VU-2026-07-0001",
+    "account_id": "VANTAGE-BILL-88213",
+    "device_uuid": "7df04fa3-e35d-6f44-193f-038f70570d90",
+    "period": "2026-07",
+    "usage_mb": 3680915
+  },
+  {
+    "usage_id": "VU-2026-06-0447",
+    "account_id": null,
+    "device_uuid": "4424bc47-f1e7-2d27-b338-24241faaa002",
+    "period": "2026-06",
+    "usage_mb": 812440
+  },
+  {
+    "usage_id": "VU-2026-07-0447",
+    "account_id": null,
+    "device_uuid": "4424bc47-f1e7-2d27-b338-24241faaa002",
+    "period": "2026-07",
+    "usage_mb": 903117
+  },
+  {
+    "usage_id": "VU-2026-06-7926",
+    "account_id": "VANTAGE-BILL-70000",
+    "device_uuid": "37971b11-0f2d-60e1-6695-73883d60febd",
+    "period": "2026-06",
+    "usage_mb": 337345
+  },
+  {
+    "usage_id": "VU-2026-07-1545",
+    "account_id": "VANTAGE-BILL-70000",
+    "device_uuid": "55f9c4c3-70ed-b37b-1fe2-e197ffd4dc1f",
+    "period": "2026-07",
+    "usage_mb": 471554
+  },
+  {
+    "usage_id": "VU-2026-06-9859",
+    "account_id": "VANTAGE-BILL-70013",
+    "device_uuid": "a2cfba9a-4c22-21e8-7dfc-8107c95ba68f",
+    "period": "2026-06",
+    "usage_mb": 625248
+  },
+  {
+    "usage_id": "VU-2026-07-5209",
+    "account_id": "VANTAGE-BILL-70013",
+    "device_uuid": "6ebf0121-233d-c099-db9a-d1ee3b1534c1",
+    "period": "2026-07",
+    "usage_mb": 1405466
+  },
+  {
+    "usage_id": "VU-2026-06-7538",
+    "account_id": "VANTAGE-BILL-70026",
+    "device_uuid": "caad3d36-8a9e-c51f-8b48-5f0e0ec7db17",
+    "period": "2026-06",
+    "usage_mb": 1094513
+  },
+  {
+    "usage_id": "VU-2026-07-7603",
+    "account_id": "VANTAGE-BILL-70026",
+    "device_uuid": "e598576d-74ca-2de2-37ff-c24bfbbf581e",
+    "period": "2026-07",
+    "usage_mb": 1484112
+  },
+  {
+    "usage_id": "VU-2026-06-7238",
+    "account_id": "VANTAGE-BILL-70039",
+    "device_uuid": "4424bc47-f1e7-2d27-b338-24241faaa002",
+    "period": "2026-06",
+    "usage_mb": 548198
+  },
+  {
+    "usage_id": "VU-2026-07-2949",
+    "account_id": "VANTAGE-BILL-70039",
+    "device_uuid": "63e1e5ce-d69d-02ee-2267-a128966848da",
+    "period": "2026-07",
+    "usage_mb": 456944
+  }
+]

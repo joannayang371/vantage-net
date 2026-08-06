@@ -1,0 +1,52 @@
+[
+  {
+    "account_id": "VANTAGE-BILL-88213",
+    "legal_name": "Beacon Manufacturing Corp",
+    "tax_id": "47-2214880",
+    "service_address": "1400 Harbor Industrial Way, Quincy, MA 02171",
+    "plan_code": "ENTERPRISE-FLEX",
+    "included_gb": 3000,
+    "loyalty_discount_pct": 8.0,
+    "tax_pct": 6.25
+  },
+  {
+    "account_id": "VANTAGE-BILL-70000",
+    "legal_name": "Northgate Logistics LLC",
+    "tax_id": "26-8841902",
+    "service_address": "88 Northgate Blvd, Providence, RI 02903",
+    "plan_code": "BUSINESS-FLEX",
+    "included_gb": 500,
+    "loyalty_discount_pct": 0.0,
+    "tax_pct": 6.25
+  },
+  {
+    "account_id": "VANTAGE-BILL-70013",
+    "legal_name": "Cedar Point Health Systems",
+    "tax_id": "31-5528117",
+    "service_address": "2100 Cedar Point Dr, Atlanta, GA 30318",
+    "plan_code": "BUSINESS-FLEX",
+    "included_gb": 1000,
+    "loyalty_discount_pct": 4.0,
+    "tax_pct": 6.25
+  },
+  {
+    "account_id": "VANTAGE-BILL-70026",
+    "legal_name": "Willow Grove Retail Group",
+    "tax_id": "45-9930221",
+    "service_address": "500 Willow Grove Pkwy, Chicago, IL 60614",
+    "plan_code": "BUSINESS-FLEX",
+    "included_gb": 1000,
+    "loyalty_discount_pct": 0.0,
+    "tax_pct": 6.25
+  },
+  {
+    "account_id": "VANTAGE-BILL-70039",
+    "legal_name": "Stonebridge Financial",
+    "tax_id": "12-7741550",
+    "service_address": "9 Stonebridge Sq, Phoenix, AZ 85004",
+    "plan_code": "BUSINESS-FLEX",
+    "included_gb": 500,
+    "loyalty_discount_pct": 4.0,
+    "tax_pct": 6.25
+  }
+]
