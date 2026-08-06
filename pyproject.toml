@@ -4,6 +4,7 @@ version = "2.4.0"
 description = "Vantage inventory, management addressing and billing services"
 requires-python = ">=3.10"
 dependencies = [
+    "unified-inventory-rules @ git+https://github.com/joannayang371/unified-inventory-rules.git@28e2e3444fcf63a1b28a462a5e71f0a8b319dd4c",
     "fastapi>=0.110",
     "uvicorn>=0.27",
     "pymongo>=4.6",
