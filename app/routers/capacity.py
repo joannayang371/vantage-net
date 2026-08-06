@@ -134,18 +134,37 @@ _PAGE = """<!DOCTYPE html>
     padding: 22px 26px;
     margin-bottom: 22px;
   }}
-  .rule {{ display: flex; gap: 26px; flex-wrap: wrap; align-items: center; }}
-  .rule h2 {{ font-family: "Space Grotesk", Inter, sans-serif; font-size: 15px; margin: 0 0 8px; }}
+  th.avail-head {{ position: relative; cursor: help; }}
+  th.avail-head .label {{ border-bottom: 1px dashed #a5b4fc; }}
+  .tip {{
+    position: absolute;
+    right: 0;
+    top: calc(100% + 10px);
+    width: 330px;
+    z-index: 5;
+    display: none;
+    text-align: left;
+    text-transform: none;
+    letter-spacing: 0;
+    white-space: normal;
+    background: var(--card);
+    color: var(--ink);
+    border-radius: 14px;
+    box-shadow: 0 12px 34px rgba(15,27,45,.18);
+    padding: 16px 18px;
+  }}
+  th.avail-head:hover .tip, th.avail-head:focus .tip {{ display: block; }}
+  .tip h3 {{ font-family: "Space Grotesk", Inter, sans-serif; font-size: 14px; margin: 0 0 9px; }}
   .formula {{
     font-family: "Space Grotesk", Inter, sans-serif;
-    font-size: 17px;
+    font-size: 14px;
     font-weight: 600;
     background: var(--violet-soft);
     color: #3730a3;
-    padding: 12px 16px;
-    border-radius: 12px;
+    padding: 10px 13px;
+    border-radius: 10px;
   }}
-  .rule p {{ margin: 10px 0 0; color: var(--muted); line-height: 1.6; max-width: 520px; }}
+  .tip p {{ margin: 11px 0 0; color: var(--muted); line-height: 1.6; font-size: 13px; font-weight: 400; }}
   .buffer-pill {{
     background: var(--amber-soft);
     color: var(--amber);
@@ -166,12 +185,15 @@ _PAGE = """<!DOCTYPE html>
   .tile .v {{ font-family: "Space Grotesk", Inter, sans-serif; font-size: 26px; font-weight: 700; }}
   .tile .k {{ font-size: 11px; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); margin-top: 4px; }}
   .tile.buffer .v {{ color: var(--amber); }}
-  .table-wrap {{ background: var(--card); border-radius: 16px; box-shadow: 0 8px 30px rgba(15,27,45,.08); overflow: hidden; }}
+  .table-wrap {{ background: var(--card); border-radius: 16px; box-shadow: 0 8px 30px rgba(15,27,45,.08); }}
   table {{ width: 100%; border-collapse: collapse; }}
   thead th {{
     text-align: left; font-size: 11px; letter-spacing: .08em; text-transform: uppercase;
     color: var(--muted); padding: 14px 16px; background: #f8fafc; border-bottom: 1px solid var(--line); white-space: nowrap;
   }}
+  thead th:first-child {{ border-top-left-radius: 16px; }}
+  thead th:last-child {{ border-top-right-radius: 16px; }}
+  tbody tr:last-child td {{ border-bottom: none; }}
   th.num, td.num {{ text-align: right; }}
   th.buffer, td.buffer {{ background: #fffbeb; }}
   tbody td {{ padding: 13px 16px; border-bottom: 1px solid #f1f5f9; }}
@@ -203,16 +225,6 @@ _PAGE = """<!DOCTYPE html>
      what is actually sellable today.</p>
 </header>
 <main>
-  <section class="panel rule">
-    <div>
-      <h2>How availability is calculated</h2>
-      <div class="formula">available = total &minus; allocated &minus; maintenance buffer</div>
-      <p>The maintenance buffer is capacity reserved for planned work and failover headroom.
-         It is never offered to customers, so it is subtracted before we quote.</p>
-    </div>
-    <div class="buffer-pill">{buffer_total} Mbps held as maintenance buffer</div>
-  </section>
-
   <section class="panel controls">
     <div>
       <label for="requested">Requested bandwidth (Mbps)</label>
@@ -226,6 +238,7 @@ _PAGE = """<!DOCTYPE html>
       <label for="search">Search customer or location</label>
       <input id="search" type="search" placeholder="e.g. Beacon, Riverside, RIV-01">
     </div>
+    <div class="buffer-pill">{buffer_total} Mbps held as maintenance buffer</div>
   </section>
 
   <div class="tiles">
@@ -246,7 +259,15 @@ _PAGE = """<!DOCTYPE html>
           <th class="num">Total</th>
           <th class="num">Allocated</th>
           <th class="num buffer">Maint. buffer</th>
-          <th class="num">Available</th>
+          <th class="num avail-head" tabindex="0">
+            <span class="label">Available</span>
+            <div class="tip">
+              <h3>How availability is calculated</h3>
+              <div class="formula">available = total &minus; allocated &minus; maintenance buffer</div>
+              <p>The maintenance buffer is capacity reserved for planned work and failover
+                 headroom. It is never offered to customers, so it is subtracted before we quote.</p>
+            </div>
+          </th>
           <th class="num">Utilization</th>
           <th>Verdict</th>
         </tr>
