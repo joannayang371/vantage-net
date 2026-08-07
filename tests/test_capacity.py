@@ -1,5 +1,21 @@
+import oss_capacity
+import pytest
+from oss_capacity.vectors import load_vectors
+
 from app.inventory.capacity import available_capacity, site_capacity, utilization_pct
 from app.inventory.repository import get_site, list_circuits
+
+
+def test_capacity_module_is_the_canonical_implementation():
+    assert available_capacity is oss_capacity.available_capacity
+    assert utilization_pct is oss_capacity.utilization_pct
+    assert site_capacity is oss_capacity.site_capacity
+
+
+@pytest.mark.parametrize("vector", load_vectors(), ids=lambda v: v["name"])
+def test_shared_golden_vectors(vector):
+    assert available_capacity(vector["total"], vector["allocated"], vector["buffer"]) == vector["available_mbps"]
+    assert utilization_pct(vector["total"], vector["allocated"], vector["buffer"]) == vector["utilization_pct"]
 
 
 def test_available_capacity_subtracts_maintenance_buffer():
