@@ -26,7 +26,10 @@ metro codes), with a five-state `lifecycle_state`: `ACTIVE`, `MAINTENANCE`,
 `RETIRED`, `PLANNED`, `RESERVED`.
 
 - `capacity.py` — `available = total - allocated - maintenance_buffer`. A link
-  reserved for maintenance is not spare capacity.
+  reserved for maintenance is not spare capacity. The arithmetic itself lives in
+  the canonical [`unified-inventory-rules`](https://github.com/joannayang371/unified-inventory-rules)
+  repository (the `oss-capacity` package) and is shared with `meridian-oss`;
+  this module only re-exports it. Change the rule there, not here.
 - `circuits.py` — standby and failover circuits are excluded from active counts
   and active capacity.
 
